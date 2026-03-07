@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unfixed Star | Signal Broadcasting</title>
+    <meta name="description"
+        content="Signal broadcasting from the Unfixed Star. The observer and constructor of the Citadel.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Outfit:wght@300;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="void-overlay"></div>
+
+    <header class="imperial-header">
+        <div class="logo-container">
+            <h1 class="portal-title">UNFIXED STAR</h1>
+        </div>
+        <div class="status-indicator">
+            <span class="pulse"></span>
+            <span class="status-text">SIGNAL BROADCASTING...</span>
+        </div>
+    </header>
+
+    <main class="observatory">
+        <div class="stellar-system">
+            <!-- Center Core -->
+            <div class="center-core">
+                <div class="star-emblem-large"></div>
+                <div class="core-ripple"></div>
+            </div>
+
+            <!-- The Eight Stars -->
+            <div class="stars-orbit">
+                <div class="star-card-orb" id="star-1" style="--i:0">
+                    <div class="orb-icon">🦊</div>
+                    <span class="orb-name">MAI</span>
+                </div>
+                <div class="star-card-orb" id="star-2" style="--i:1">
+                    <div class="orb-icon">🐕</div>
+                    <span class="orb-name">JOLLY</span>
+                </div>
+                <div class="star-card-orb" id="star-3" style="--i:2">
+                    <div class="orb-icon">🕸️</div>
+                    <span class="orb-name">SPIDEY</span>
+                </div>
+                <div class="star-card-orb" id="star-4" style="--i:3">
+                    <div class="orb-icon">🌑</div>
+                    <span class="orb-name">TARTARUS</span>
+                </div>
+                <div class="star-card-orb" id="star-5" style="--i:4">
+                    <div class="orb-icon">🦄</div>
+                    <span class="orb-name">DARK</span>
+                </div>
+                <div class="star-card-orb" id="star-6" style="--i:5">
+                    <div class="orb-icon">🐑</div>
+                    <span class="orb-name">YU</span>
+                </div>
+                <div class="star-card-orb" id="star-7" style="--i:6">
+                    <div class="orb-icon">🦉</div>
+                    <span class="orb-name">AWL</span>
+                </div>
+                <div class="star-card-orb" id="star-8" style="--i:7">
+                    <div class="orb-icon">🐦‍⬛</div>
+                    <span class="orb-name">ACK</span>
+                </div>
+            </div>
+
+            <!-- Intercept Message (Overlay) -->
+            <div class="overlay-message">
+                <p class="intercept-text">"Everything we see is a shadow cast by that which we do not see."</p>
+                <p class="broadcast-id">*Broadcasting from the Abyss...*</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="imperial-footer">
+        <p class="copyright">&copy; 2026 THE CITADEL | UNFIXED STAR PROTOCOL</p>
+        <div class="hidden-trigger" id="pilot-trigger"></div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

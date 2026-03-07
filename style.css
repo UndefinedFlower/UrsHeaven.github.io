@@ -1,0 +1,273 @@
+:root {
+    --bg-void: #050505;
+    --gold: #D4AF37;
+    --gold-glow: rgba(212, 175, 55, 0.3);
+    --jade: #00A86B;
+    --text-primary: #E0E0E0;
+    --text-muted: #888888;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --system-radius: 35vh;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: crosshair;
+}
+
+body {
+    background-color: var(--bg-void);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    /* No scroll for fixed star system */
+    height: 100vh;
+}
+
+.void-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(20, 20, 20, 0) 0%, rgba(5, 5, 5, 1) 100%);
+    pointer-events: none;
+    z-index: 10;
+}
+
+.imperial-header {
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    z-index: 20;
+    position: relative;
+}
+
+.portal-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.8rem;
+    background: linear-gradient(90deg, #FFF, var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.status-text {
+    font-size: 0.7rem;
+    color: var(--jade);
+    letter-spacing: 2px;
+}
+
+/* Stellar System */
+.stellar-system {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.center-core {
+    position: absolute;
+    z-index: 5;
+}
+
+.star-emblem-large {
+    width: 100px;
+    height: 100px;
+    background: var(--gold);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    filter: drop-shadow(0 0 30px var(--gold));
+    animation: core-rotate 20s infinite linear;
+}
+
+@keyframes core-rotate {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(180deg) scale(1.1);
+    }
+
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+.core-ripple {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    border: 1px solid var(--gold-glow);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: ripple 4s infinite ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        width: 100px;
+        height: 100px;
+        opacity: 1;
+    }
+
+    100% {
+        width: 500px;
+        height: 500px;
+        opacity: 0;
+    }
+}
+
+/* Orbiting Stars */
+.stars-orbit {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.star-card-orb {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    /* Calculate Position */
+    --angle: calc(var(--i) * (360deg / 8));
+    transform: rotate(var(--angle)) translateY(calc(-1 * var(--system-radius))) rotate(calc(-1 * var(--angle)));
+}
+
+.star-card-orb:hover {
+    background: rgba(255, 255, 255, 0.1);
+    animation: pulse 4s ease-in-out infinite, rotate-core 20s linear infinite;
+    box-shadow: 0 0 50px rgba(0, 163, 255, 0.4), inset 0 0 20px rgba(0, 163, 255, 0.6);
+    scale: 1.2;
+}
+
+@keyframes rotate-core {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.orb-icon {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.stellar-circle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    border: 1px solid rgba(0, 163, 255, 0.1);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: serene-rotate 60s linear infinite;
+}
+
+@keyframes serene-rotate {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.core-node {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    color: var(--text-primary);
+}
+
+.orb-name {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    color: var(--text-primary);
+}
+
+/* Message Overlay */
+.overlay-message {
+    position: absolute;
+    bottom: 5vh;
+    text-align: center;
+    width: 100%;
+    z-index: 15;
+}
+
+.intercept-text {
+    font-style: italic;
+    font-weight: 300;
+    opacity: 0.7;
+    margin-bottom: 10px;
+}
+
+.broadcast-id {
+    font-size: 0.6rem;
+    letter-spacing: 5px;
+    color: var(--text-muted);
+}
+
+/* Footer */
+.imperial-footer {
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    position: relative;
+}
+
+.copyright {
+    font-size: 0.6rem;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+}
+
+.hidden-trigger {
+    width: 10px;
+    height: 10px;
+    opacity: 0.1;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+@media (max-height: 700px) {
+    :root {
+        --system-radius: 25vh;
+    }
+
+    .star-card-orb {
+        width: 80px;
+        height: 80px;
+    }
+}
