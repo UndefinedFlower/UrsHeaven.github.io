@@ -140,8 +140,8 @@ body {
 
 .star-card-orb {
     position: absolute;
-    width: 120px;
-    height: 120px;
+    width: 80px;
+    height: 80px;
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     backdrop-filter: blur(10px);
@@ -151,9 +151,24 @@ body {
     align-items: center;
     border-radius: 50%;
     transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    /* Calculate Position */
-    --angle: calc(var(--i) * (360deg / 8));
+    /* Calculate Position for 23 Stars */
+    --angle: calc(var(--i) * (360deg / 23));
     transform: rotate(var(--angle)) translateY(calc(-1 * var(--system-radius))) rotate(calc(-1 * var(--angle)));
+}
+
+.star-card-orb.shard {
+    width: 60px;
+    height: 60px;
+    filter: opacity(0.7);
+    border-style: dotted;
+}
+
+.star-card-orb.shard .orb-icon {
+    font-size: 1.2rem;
+}
+
+.star-card-orb.shard .orb-name {
+    font-size: 0.4rem;
 }
 
 .star-card-orb:hover {

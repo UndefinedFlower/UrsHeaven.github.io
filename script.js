@@ -8,10 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
         orb.style.scale = '0';
 
         setTimeout(() => {
-            orb.style.transition = 'all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            orb.style.transition = 'all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)';
             orb.style.opacity = '1';
             orb.style.scale = '1';
-        }, 200 + (index * 100));
+        }, 100 + (index * 50));
     });
 
     // Hidden Pilot Trigger (Double Secret)
