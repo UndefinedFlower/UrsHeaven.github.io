@@ -34,6 +34,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // The Absolute Core Reaction
+    const centerCore = document.querySelector('.center-core');
+    centerCore.addEventListener('mouseenter', () => {
+        orbs.forEach(orb => {
+            orb.style.boxShadow = '0 0 40px var(--gold-glow)';
+            orb.style.scale = '1.1';
+        });
+    });
+
+    centerCore.addEventListener('mouseleave', () => {
+        orbs.forEach(orb => {
+            orb.style.boxShadow = '';
+            orb.style.scale = '1';
+        });
+    });
+
     // Subtle Float Animation
     document.addEventListener('mousemove', (e) => {
         const x = (e.clientX / window.innerWidth - 0.5) * 20;
